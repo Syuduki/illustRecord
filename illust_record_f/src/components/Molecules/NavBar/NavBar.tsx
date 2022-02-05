@@ -4,31 +4,33 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
+import MenuList from '@mui/material/MenuList';
+import MenuItem from '@mui/material/MenuItem';
+import MenuIcon from '@mui/icons-material/Menu';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
+import PersonIcon from '@mui/icons-material/Person';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { RightDrawer } from '../Drawer';
 
 interface IProps {
   avatarPass: string;
 }
 
 export const NavBar: React.FC<IProps> = ({ avatarPass }) => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+  const [state, setState] = React.useState<boolean>(false);
+
+  /** クリック動作確認用 確認後削除する*/
+  const redirectPage = (target: string) => {
+    console.log(`onClick -> ${target}`);
   };
 
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -48,8 +50,10 @@ export const NavBar: React.FC<IProps> = ({ avatarPass }) => {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            onClick={() => setState(true)}
           >
             <MenuIcon />
+            <Divider />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             illustRecord ロゴ
@@ -78,16 +82,31 @@ export const NavBar: React.FC<IProps> = ({ avatarPass }) => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">ユーザー設定</Typography>
-              </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">ログアウト</Typography>
-              </MenuItem>
+              <MenuList>
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <ListItemIcon>
+                    <PersonIcon fontSize="small" />
+                  </ListItemIcon>
+                  <Typography textAlign="center">ユーザー設定</Typography>
+                </MenuItem>
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <ListItemIcon>
+                    <LogoutIcon fontSize="small" />
+                  </ListItemIcon>
+                  <Typography textAlign="center">ログアウト</Typography>
+                </MenuItem>
+              </MenuList>
             </Menu>
           </Box>
         </Toolbar>
       </AppBar>
+      <RightDrawer
+        state={state}
+        setState={setState}
+        onClickIcon={(target: string) => {
+          redirectPage(target);
+        }}
+      />
     </Box>
   );
 };
