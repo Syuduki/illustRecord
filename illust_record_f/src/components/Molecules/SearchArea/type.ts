@@ -5,3 +5,7 @@ export interface IProps {
   onSubmit: () => void;
   width: number;
 }
+
+export interface Args {
+  width: number;
+}
