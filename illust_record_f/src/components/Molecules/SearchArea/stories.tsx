@@ -1,25 +1,20 @@
 import * as React from 'react';
-import { ComponentMeta } from '@storybook/react';
-
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { SearchArea } from '.';
-import { Args } from './type';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Molecules/SearchArea',
   component: SearchArea,
-  args: {
-    width: 400,
-  },
 } as ComponentMeta<typeof SearchArea>;
 
-export const SearchAreaStory: React.FC<Args> = (args) => {
-  const [tags, setTags] = React.useState<string[]>([]);
+const Template: ComponentStory<typeof SearchArea> = (args) => (
+  <SearchArea {...args} />
+);
 
-  React.useEffect(() => {
-    console.log(tags);
-  }, [tags]);
-
-  return (
-    <SearchArea setTags={setTags} onSubmit={() => {}} width={args.width} />
-  );
+export const searchArea = Template.bind({});
+searchArea.args = {
+  setTags: action('setTags'),
+  onSubmit: action('onSubmit'),
+  width: 400,
 };

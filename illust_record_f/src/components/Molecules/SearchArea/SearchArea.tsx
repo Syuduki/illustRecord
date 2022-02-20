@@ -2,9 +2,9 @@ import * as React from 'react';
 import InputAdornment from '@mui/material/InputAdornment';
 import TextField from '@mui/material/TextField';
 import SearchIcon from '@mui/icons-material/Search';
-import { IProps } from './type';
+import { Props } from './types';
 
-export const SearchArea: React.FC<IProps> = ({ setTags, onSubmit, width }) => {
+export const SearchArea: React.FC<Props> = ({ setTags, onSubmit, width }) => {
   const [value, setValue] = React.useState<string>('');
 
   const onKeyDown = () => {
@@ -18,7 +18,7 @@ export const SearchArea: React.FC<IProps> = ({ setTags, onSubmit, width }) => {
 
   return (
     <TextField
-      id="input-with-icon-textfield"
+      id="Search"
       label=""
       placeholder="作品を検索"
       onKeyDown={(e) => {
