@@ -18,7 +18,7 @@ export const SearchArea: React.FC<Props> = ({ setTags, onSubmit, width }) => {
 
   return (
     <TextField
-      id="Search"
+      id="SearchInputBox"
       label=""
       placeholder="作品を検索"
       onKeyDown={(e) => {
