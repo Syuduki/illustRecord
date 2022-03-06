@@ -10,7 +10,7 @@ import * as types from './types';
 
 export const IllustCard: React.FC<types.Props> = ({ ...props }) => {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345, width: '100%' }}>
       <CardActionArea onClick={() => props.onClickCard(props.id)}>
         <CardMedia component="img" height="140" src={props.imagePass} alt="" />
         <CardContent>
