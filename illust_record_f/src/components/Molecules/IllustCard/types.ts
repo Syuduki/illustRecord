@@ -4,6 +4,6 @@ export interface Props {
   title: string;
   explanation: string;
   tags: string[];
-  onClickCard: (illustId?: number) => void;
+  onClickCard: (id: number) => void;
   onClickTag: (tag: string) => void;
 }
