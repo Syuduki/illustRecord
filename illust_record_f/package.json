@@ -6,8 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -s ./public -p 6006",
+    "build-storybook": "build-storybook -s public",
     "test": "jest"
   },
   "dependencies": {
