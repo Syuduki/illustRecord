@@ -7,7 +7,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 
 import * as types from './types';
-import * as constants from '../../../../plugins/constants';
+import * as styles from '../../../styles';
 
 export const IllustCard: React.FC<types.Props> = ({ ...props }) => {
   return (
@@ -30,8 +30,8 @@ export const IllustCard: React.FC<types.Props> = ({ ...props }) => {
             color="primary"
             key={tag}
             value={tag}
-            onClick={(e) => props.onClickTag(e.currentTarget.value)}
-            style={{ color: constants.ACCENT_TEXT_COLOR }}
+            onClick={() => props.onClickTag(tag)}
+            style={{ color: styles.ACCENT_TEXT_COLOR }}
           >
             {tag}
           </Button>
