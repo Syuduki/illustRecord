@@ -17,7 +17,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 import { RightDrawer } from '../Drawer';
-import * as constants from '../../../../plugins/constants';
+import * as styles from '../../../styles';
 
 interface IProps {
   avatarPass: string;
@@ -44,7 +44,7 @@ export const NavBar: React.FC<IProps> = ({ avatarPass }) => {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ background: constants.MAIN_COLOR }}>
+      <AppBar position="static" style={{ background: styles.MAIN_COLOR }}>
         <Toolbar>
           <IconButton
             size="large"

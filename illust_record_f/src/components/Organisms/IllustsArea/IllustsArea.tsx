@@ -10,7 +10,7 @@ import ImageIcon from '@mui/icons-material/Image';
 
 import * as type from './types';
 import * as style from './styles';
-import * as constants from '../../../../plugins/constants';
+import * as styles from '../../../styles';
 
 import { IllustCard } from '../../Molecules/IllustCard';
 
@@ -25,7 +25,7 @@ export const IllustsArea: React.FC<type.Props> = ({ ...props }) => {
         <Button
           variant="contained"
           endIcon={<ImageIcon />}
-          style={{ background: constants.ACCENT_COLOR }}
+          style={{ background: styles.ACCENT_COLOR }}
           onClick={() => props.onClickButton()}
         >
           作品登録
