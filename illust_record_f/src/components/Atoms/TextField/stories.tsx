@@ -3,19 +3,23 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { TextField } from '.';
+import * as types from './types';
 
 export default {
   title: 'Atoms/TextField/TextField',
   component: TextField,
   argTypes: {
-    size: { control: { type: 'check', options: ['small', 'medium'] } },
+    size: { control: { type: 'radio', options: ['small', 'medium'] } },
     variant: {
-      control: { type: 'check', options: ['filled', 'outlined', 'standard'] },
+      control: { type: 'radio', options: ['filled', 'outlined', 'standard'] },
     },
+    multiline: { control: { type: 'radio', options: [true, false] } },
   },
 } as ComponentMeta<typeof TextField>;
 
-export const TextFieldComponent: React.FC = () => {
+export const TextFieldComponent: React.FC<types.StoryProps> = ({
+  ...props
+}) => {
   const { control, formState, handleSubmit } = useForm({
     mode: 'onBlur',
   });
@@ -25,7 +29,7 @@ export const TextFieldComponent: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(() => action('validation OK'))}>
+    <form onSubmit={handleSubmit(action('validation OK'))}>
       <Controller
         name={'validText'}
         control={control}
@@ -33,10 +37,8 @@ export const TextFieldComponent: React.FC = () => {
         render={({ field }) => (
           <div {...field}>
             <TextField
+              {...props}
               id={'validText'}
-              size={'small'}
-              variant={'standard'}
-              label={'タイトル'}
               setValue={setValue}
               formState={formState}
               value={value}
@@ -46,4 +48,17 @@ export const TextFieldComponent: React.FC = () => {
       />
     </form>
   );
+};
+
+const Template: ComponentStory<typeof TextFieldComponent> = (
+  args: types.StoryProps
+) => <TextFieldComponent {...args} />;
+
+export const textFieldComponent = Template.bind({});
+
+textFieldComponent.args = {
+  size: 'small',
+  variant: 'standard',
+  multiline: false,
+  label: 'タイトル',
 };

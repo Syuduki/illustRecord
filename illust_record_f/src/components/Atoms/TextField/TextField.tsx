@@ -11,6 +11,7 @@ export const TextField: React.FC<types.Props> = ({ ...props }) => {
       variant={props.variant}
       value={props.value}
       label={props.label}
+      multiline={props.multiline}
       onChange={(e) => props.setValue(e.target.value)}
       error={props.formState.errors[props.id] ? true : false}
       helperText={props.formState.errors[props.id]?.message}
