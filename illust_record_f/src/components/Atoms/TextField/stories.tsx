@@ -17,7 +17,7 @@ export default {
 
 export const TextFieldComponent: React.FC = () => {
   const { control, formState, handleSubmit } = useForm({
-    mode: 'onChange',
+    mode: 'onBlur',
   });
   const [value, setValue] = React.useState<string>('');
   const rules = {
@@ -31,16 +31,17 @@ export const TextFieldComponent: React.FC = () => {
         control={control}
         rules={rules}
         render={({ field }) => (
-          <TextField
-            {...field}
-            id={'validText'}
-            size={'small'}
-            variant={'standard'}
-            label={'タイトル'}
-            setValue={setValue}
-            formState={formState}
-            value={value}
-          />
+          <div {...field}>
+            <TextField
+              id={'validText'}
+              size={'small'}
+              variant={'standard'}
+              label={'タイトル'}
+              setValue={setValue}
+              formState={formState}
+              value={value}
+            />
+          </div>
         )}
       />
     </form>
