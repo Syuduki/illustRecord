@@ -14,5 +14,7 @@ jobs:
           node-version: '14.x'
       - name: npm install
         run: npm install
+        working-directory: ./illust_record_f
       - name: npm run test
         run: npm run test
+        working-directory: ./illust_record_f
