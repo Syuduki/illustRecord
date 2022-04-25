@@ -4,6 +4,7 @@ import * as React from 'react';
 import { TextField } from '@mui/material';
 import { LocalizationProvider, DatePicker } from '@mui/lab';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import { format } from 'date-fns';
 
 import * as types from './types';
 
@@ -18,9 +19,13 @@ export const DateField: React.FC<types.Props> = ({ ...props }) => {
         onChange={(date) => {
           props.setValue(date ? date : '');
         }}
+        onAccept={(date) => {
+          props.setValue(date ? format(new Date(date), 'yyyy-MM-dd') : '');
+        }}
         renderInput={(params) => (
           <TextField
             {...params}
+            id={props.id}
             label={props.label}
             size={props.size}
             variant={props.variant}

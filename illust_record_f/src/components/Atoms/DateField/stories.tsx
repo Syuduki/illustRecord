@@ -24,20 +24,25 @@ export const DateFieldComponent: React.FC<types.StoryProps> = ({
   });
   const [value, setValue] = React.useState<string>('');
   const rules = {
-    required: { value: true, message: 'タイトルは必須項目です' },
+    required: { value: true, message: '日付は必須項目です' },
   };
+
+  React.useEffect(() => {
+    console.log(value);
+  }, [value]);
 
   return (
     <form onSubmit={handleSubmit(action('validation OK'))}>
       <Controller
-        name={'validText'}
+        name={'validDate'}
         control={control}
+        defaultValue={value}
         rules={rules}
         render={({ field }) => (
           <div {...field}>
             <DateField
               {...props}
-              id={'validText'}
+              id={'validDate'}
               setValue={setValue}
               formState={formState}
               value={value}
