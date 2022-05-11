@@ -8,11 +8,10 @@ export interface Props {
   label: string;
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
-  formState: FormState<FieldValues>;
 }
 
-export interface StoryProps {
-  size: 'medium' | 'small';
-  variant: 'filled' | 'outlined' | 'standard';
-  label: string;
-}
+// export interface StoryProps {
+//   size: 'medium' | 'small';
+//   variant: 'filled' | 'outlined' | 'standard';
+//   label: string;
+// }

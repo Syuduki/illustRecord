@@ -1,9 +1,7 @@
 import * as React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
-import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 import { DateField } from '.';
-import * as types from './types';
 
 export default {
   title: 'Atoms/TextField/TextField',
@@ -16,51 +14,16 @@ export default {
   },
 } as ComponentMeta<typeof DateField>;
 
-export const DateFieldComponent: React.FC<types.StoryProps> = ({
-  ...props
-}) => {
-  const { control, formState, handleSubmit } = useForm({
-    mode: 'onBlur',
-  });
-  const [value, setValue] = React.useState<string>('');
-  const rules = {
-    required: { value: true, message: '日付は必須項目です' },
-  };
-
-  React.useEffect(() => {
-    console.log(value);
-  }, [value]);
-
-  return (
-    <form onSubmit={handleSubmit(action('validation OK'))}>
-      <Controller
-        name={'validDate'}
-        control={control}
-        defaultValue={value}
-        rules={rules}
-        render={({ field }) => (
-          <div {...field}>
-            <DateField
-              {...props}
-              id={'validDate'}
-              setValue={setValue}
-              formState={formState}
-              value={value}
-            />
-          </div>
-        )}
-      />
-    </form>
-  );
-};
-
-const Template: ComponentStory<typeof DateFieldComponent> = (
-  args: types.StoryProps
-) => <DateFieldComponent {...args} />;
+const Template: ComponentStory<typeof DateField> = (args) => (
+  <DateField {...args} />
+);
 
 export const dateFieldComponent = Template.bind({});
 
 dateFieldComponent.args = {
+  id: 'dateField',
+  value: '2022/02/02',
+  setValue: action('onBlur or onAccept'),
   size: 'small',
   variant: 'standard',
   label: '日付',
