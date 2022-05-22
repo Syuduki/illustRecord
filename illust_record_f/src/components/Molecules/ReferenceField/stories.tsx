@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { ReferenceField } from '.';
-import * as types from './types';
 import { useForm, Controller, SubmitHandler } from 'react-hook-form';
 
 export default {
