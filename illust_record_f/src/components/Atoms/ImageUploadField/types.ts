@@ -1,6 +1,6 @@
 import React from 'react';
 
 export interface IProps {
-  preview: string;
-  setPreview: React.Dispatch<React.SetStateAction<string>>;
+  imageSrc: string;
+  setImageSrc: React.Dispatch<React.SetStateAction<string>>;
 }

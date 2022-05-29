@@ -8,7 +8,9 @@ import Stack from '@mui/material/Stack';
 export const ImageUploadField: React.FC<types.IProps> = ({ ...props }) => {
   const onChangeFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
-    if (files !== null) props.setPreview(window.URL.createObjectURL(files[0]));
+    if (files && files[0] !== null && files[0] !== undefined) {
+      props.setImageSrc(window.URL.createObjectURL(files[0]));
+    }
   };
 
   return (
@@ -18,10 +20,12 @@ export const ImageUploadField: React.FC<types.IProps> = ({ ...props }) => {
       alignItems="center"
       spacing={2}
     >
-      <styles.PreviewImg
-        src={props.preview ? props.preview : '/images/noImage.jpg'}
-        alt="preview"
-      />
+      <styles.Preview>
+        <styles.PreviewImg
+          src={props.imageSrc ? props.imageSrc : '/images/noImage.jpg'}
+          alt="preview"
+        />
+      </styles.Preview>
       <label htmlFor="contained-button-file">
         <styles.Input
           accept="image/*"

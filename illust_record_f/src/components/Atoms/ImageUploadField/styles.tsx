@@ -10,9 +10,6 @@ export const label = styled.label`
 export const Preview = styled.div`
   width: 300px;
   height: 300px;
-  &:hover {
-    background: rgba(255, 255, 255, 0.3);
-  }
 `;
 
 export const PreviewImg = styled.img`
