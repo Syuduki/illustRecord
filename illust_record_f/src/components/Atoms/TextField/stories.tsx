@@ -39,7 +39,9 @@ export const TextFieldComponent: React.FC<types.StoryProps> = ({
             <TextField
               {...props}
               id={'validText'}
-              setValue={setValue}
+              onChangeValue={(e) => {
+                console.log(e);
+              }}
               formState={formState}
               value={value}
             />

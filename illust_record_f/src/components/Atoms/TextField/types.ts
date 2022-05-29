@@ -8,7 +8,7 @@ export interface Props {
   multiline: boolean;
   label: string;
   value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  onChangeValue: (value: string) => void;
   formState: FormState<FieldValues>;
 }
 
