@@ -15,6 +15,7 @@ export const TextField: React.FC<types.Props> = ({ ...props }) => {
       onChange={(e) => props.onChangeValue(e.target.value)}
       error={props.formState.errors[props.id] ? true : false}
       helperText={props.formState.errors[props.id]?.message}
+      style={{ width: '100%' }}
     ></MuiTextField>
   );
 };

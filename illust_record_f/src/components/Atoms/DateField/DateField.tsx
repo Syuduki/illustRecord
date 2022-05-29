@@ -35,6 +35,7 @@ export const DateField: React.FC<types.Props> = ({ ...props }) => {
                   )
                 : '';
             }}
+            style={{ width: '100%' }}
           />
         )}
       />
