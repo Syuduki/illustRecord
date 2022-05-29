@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { DateField } from '.';
 
 export default {
-  title: 'Atoms/TextField/TextField',
+  title: 'Atoms/DateField',
   component: DateField,
   argTypes: {
     size: { control: { type: 'radio', options: ['small', 'medium'] } },

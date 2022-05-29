@@ -4,11 +4,11 @@ import { ImageUploadField } from '.';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Atoms/ImageUploadField/ImageUploadField',
+  title: 'Atoms/ImageUploadField',
   component: ImageUploadField,
 } as ComponentMeta<typeof ImageUploadField>;
 
-export const ImageUploadFieldComponent: React.FC = () => {
+const ImageUploadFieldComponent: React.FC = () => {
   const [value, setValue] = React.useState<string>('');
 
   return (

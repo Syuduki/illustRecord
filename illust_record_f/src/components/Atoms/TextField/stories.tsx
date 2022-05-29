@@ -6,7 +6,7 @@ import { TextField } from '.';
 import * as types from './types';
 
 export default {
-  title: 'Atoms/TextField/TextField',
+  title: 'Atoms/TextField',
   component: TextField,
   argTypes: {
     size: { control: { type: 'radio', options: ['small', 'medium'] } },
