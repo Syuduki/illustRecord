@@ -7,20 +7,23 @@ import { MOCK_ILLUST_DATA } from './fixture';
 import { StoryProps } from './types';
 
 export default {
-  title: 'Organisms/IllustRegisterForm/IllustRegisterForm',
+  title: 'Organisms/IllustRegisterForm',
   component: IllustRegisterForm,
 } as ComponentMeta<typeof IllustRegisterForm>;
 
-export const IllustRegisterFormComponent: React.FC<StoryProps> = ({
-  ...props
-}) => {
+const IllustRegisterFormComponent: React.FC<StoryProps> = ({ ...props }) => {
   const { control, formState, handleSubmit } = useForm({
     mode: 'onBlur',
   });
 
   return (
     <form onSubmit={handleSubmit(action('validation OK'))}>
-      <IllustRegisterForm {...props} control={control} formState={formState} />
+      <IllustRegisterForm
+        {...props}
+        control={control}
+        formState={formState}
+        onClickTag={action('onClickTag')}
+      />
     </form>
   );
 };

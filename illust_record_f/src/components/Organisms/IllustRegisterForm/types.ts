@@ -7,6 +7,7 @@ export interface IProps {
   setIllustData: React.Dispatch<React.SetStateAction<IllustData>>;
   control: Control<FieldValues, any>;
   formState: FormState<FieldValues>;
+  onClickTag: () => void;
 }
 
 export interface StoryProps {
