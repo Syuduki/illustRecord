@@ -35,7 +35,7 @@ export const RegisterDialog: React.FC<Props> = ({ ...props }) => {
       <DialogContent>{props.registerForm}</DialogContent>
       <DialogActions>
         <Stack direction="row" spacing={2}>
-          {props.deleteDisabled && (
+          {props.deleteDisabled || (
             <Button
               variant="contained"
               style={{ backgroundColor: 'red' }}
