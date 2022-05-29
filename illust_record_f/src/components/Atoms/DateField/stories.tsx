@@ -23,7 +23,7 @@ export const dateFieldComponent = Template.bind({});
 dateFieldComponent.args = {
   id: 'dateField',
   value: '2022/02/02',
-  setValue: action('onBlur or onAccept'),
+  onChangeDate: action('onBlur or onAccept'),
   size: 'small',
   variant: 'standard',
   label: '日付',

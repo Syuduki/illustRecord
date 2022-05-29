@@ -19,7 +19,7 @@ export const DateField: React.FC<types.Props> = ({ ...props }) => {
         mask="____/__/__"
         onChange={() => {}}
         onAccept={(date) => {
-          props.setValue(date ? format(new Date(date), 'yyyy-MM-dd') : '');
+          props.onChangeDate(date ? format(new Date(date), 'yyyy-MM-dd') : '');
         }}
         renderInput={(params) => (
           <TextField
@@ -30,7 +30,7 @@ export const DateField: React.FC<types.Props> = ({ ...props }) => {
             variant={props.variant}
             onBlur={(e) => {
               e.target.value.toString()
-                ? props.setValue(
+                ? props.onChangeDate(
                     format(new Date(e.target.value.toString()), 'yyyy-MM-dd')
                   )
                 : '';

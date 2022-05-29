@@ -7,7 +7,7 @@ export interface Props {
   variant: 'filled' | 'outlined' | 'standard';
   label: string;
   value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  onChangeDate: (value: string) => void;
 }
 
 // export interface StoryProps {
