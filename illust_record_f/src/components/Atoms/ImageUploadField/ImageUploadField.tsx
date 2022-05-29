@@ -9,7 +9,7 @@ export const ImageUploadField: React.FC<types.IProps> = ({ ...props }) => {
   const onChangeFile = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { files } = e.target;
     if (files && files[0] !== null && files[0] !== undefined) {
-      props.setImageSrc(window.URL.createObjectURL(files[0]));
+      props.onChangeImage(window.URL.createObjectURL(files[0]));
     }
   };
 

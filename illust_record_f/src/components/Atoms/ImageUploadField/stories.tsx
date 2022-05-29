@@ -11,7 +11,9 @@ export default {
 export const ImageUploadFieldComponent: React.FC = () => {
   const [value, setValue] = React.useState<string>('');
 
-  return <ImageUploadField preview={value} setPreview={setValue} />;
+  return (
+    <ImageUploadField imageSrc={value} onChangeImage={action('onChange')} />
+  );
 };
 
 const Template: ComponentStory<typeof ImageUploadFieldComponent> = (args) => (
