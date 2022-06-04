@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Props } from './types';
 
-import Dialog, { DialogProps } from '@mui/material/Dialog';
+import { Dialog as MuiDialog } from '@mui/material';
 import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import DialogActions from '@mui/material/DialogActions';
@@ -10,9 +10,9 @@ import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 
-export const RegisterDialog: React.FC<Props> = ({ ...props }) => {
+export const Dialog: React.FC<Props> = ({ ...props }) => {
   return (
-    <Dialog
+    <MuiDialog
       fullWidth={props.fullWidth}
       maxWidth={props.maxWidth}
       open={props.open}
@@ -32,27 +32,23 @@ export const RegisterDialog: React.FC<Props> = ({ ...props }) => {
           <CloseIcon />
         </IconButton>
       </DialogTitle>
-      <DialogContent>{props.registerForm}</DialogContent>
+      <DialogContent>{props.contentComponent}</DialogContent>
       <DialogActions>
         <Stack direction="row" spacing={2}>
           {props.deleteDisabled || (
             <Button
               variant="contained"
               style={{ backgroundColor: 'red' }}
-              onClick={() => props.onClickButton('delete')}
+              onClick={() => props.onClickDelete()}
             >
               削除
             </Button>
           )}
-          <Button
-            variant="contained"
-            type="submit"
-            onClick={() => props.onClickButton('register')}
-          >
-            登録
+          <Button variant="contained" onClick={() => props.onClickButton()}>
+            {props.buttonlabel}
           </Button>
         </Stack>
       </DialogActions>
-    </Dialog>
+    </MuiDialog>
   );
 };
